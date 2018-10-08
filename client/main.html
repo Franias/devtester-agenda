@@ -1,0 +1,175 @@
+<head>
+  <title>DevTester App</title>
+</head>
+
+<body>
+  {{> sAlert}}
+
+
+
+  {{> navbar}}
+  <div id="paginaPrincipal" class="container">
+
+
+    {{#if currentUser}}
+    {{ >listaContato}}
+    {{ >novoContato}}
+    {{else}}
+    {{> acesso}}
+    {{/if}}
+
+
+  </div>
+</body>
+
+<template name="navbar">
+  <div class="container">
+    <nav class="navbar bg-dark navbar-dark">
+      <a class="navbar-brand" href="#">DevTester</a>
+      {{#if currentUser}}
+      <div>
+        <span class="navbar-text mr-2">Olá, {{fullName}}</span>
+        <button id="botaoSair" class="btn btn-sm btn-outline-info">Sair</button>
+      </div>
+      {{/if}}
+    </nav>
+  </div>
+</template>
+
+<template name="acesso">
+  <div class="text-center">
+    <h4>Bem vindo ao DevTester App Agenda</h4>
+
+    <div class="row">
+
+      <div class="col-lg-6">
+        <form id="login" class="form-center">
+          <small>Entre com seu dados de acesso.</small>
+          <div class="form-group">
+            <input type="text" id="loginEmail" name="loginEmail" class="form-control" placeholder="Seu email">
+          </div>
+          <div class="form-group">
+            <input type="password" id="loginSenha" name="loginSenha" class="form-control" placeholder="Sua senha">
+          </div>
+
+          <button id="botaoLogin" class="btn btn-success btn-block">Entrar</button>
+        </form>
+      </div>
+
+      <div class="col-lg-6">
+        <form id="cadastro" class="form-center">
+          <small>Faça seu cadastro.</small>
+
+          <div class="form-group">
+            <input type="text" id="cadastroNome" name="cadastroNome" class="form-control" placeholder="Nome completo">
+          </div>
+
+          <div class="form-group">
+            <input type="text" id="cadastroEmail" name="cadastroEmail" class="form-control" placeholder="Seu email">
+          </div>
+
+          <div class="form-group">
+            <input type="password" id="cadastroSenha" name="cadastroSenha" class="form-control" placeholder="Sua senha">
+          </div>
+
+          <button id="botaoCadastrar" class="btn btn-info btn-block">Entrar</button>
+        </form>
+      </div>
+    </div>
+
+
+
+
+
+  </div>
+
+</template>
+
+<template name="listaContato">
+
+  <section id="meusContatos">
+
+    <!-- <div>
+      <h1>{{pegaNome}}</h1>
+      <h2>{{pegaContador}}</h2>
+      <button id="botaoContador">Conta + 1</button>
+    </div> -->
+
+    <h4><i class="fa fa-address-book"></i> Meus Contatos</h4>
+
+    <form id="busca" class="form-inline mb-3">
+      <h6>Filtrar por:</h6>
+      <div class="form-group ml-3 mx-sm-3">
+        <input type="text" id="buscaCelular" name="buscaCelular" class="form-control" placeholder="celular">
+      </div>
+      <button id="botaoBuscar" class="btn btn-success"><i class="fa fa-search"></i></button>
+    </form>
+
+
+    {{#if minhaLista.count}}
+    <table class="table">
+      <thead>
+        <th>Nome</th>
+        <th>Email</th>
+        <th>Celular</th>
+        <th>Tipo de contato</th>
+        <th></th>
+      </thead>
+      <tbody>
+        {{#each minhaLista}}
+        <tr>
+          <td>{{nome}}</td>
+          <td>{{email}}</td>
+          <td>{{celular}}</td>
+          <td><i class="fa {{retornaIcone tipo}}"></i> {{tipo}}</td>
+          <td class="td-acoes"><button id="deletarContato" class="btn btn-sm btn-outline-danger"><i class="fa fa-trash"></i></button></td>
+        </tr>
+        {{/each}}
+      </tbody>
+    </table>
+    {{else}}
+    <div class="alert alert-warning" role="alert">
+      <i class="fa fa-exclamation-triangle"></i>
+      <p>Nenhum contato encontrato.</p>
+    </div>
+    {{/if}}
+
+  </section>
+
+
+
+
+</template>
+
+
+<template name="novoContato">
+  <h4><i class="fa fa-save"></i> Novo Contato</h4>
+
+  <form name="formNovoContato">
+
+    <div class="form-group">
+      <input name="nome" id="nome" class="form-control" type="text" placeholder="João da Silva">
+    </div>
+
+    <div class="form-group">
+      <input name="email" id="react_child_input__div_x_01_form_txtEmail_0_ntc_001" class="form-control" type="text"
+        placeholder="joao@yahoo.com">
+    </div>
+
+    <div class="form-group">
+      <input name="celular" id="celular" class="form-control" type="text" data-test="celular" placeholder="Celular">
+    </div>
+
+    <div class="form-group">
+      <select name="tipo" id="tipo" class="form-control">
+        <option value="" disabled selected>Selecione</option>
+        <option value="Whats">Whats</option>
+        <option value="Telegram">Telegram</option>
+        <option value="SMS">SMS</option>
+      </select>
+      <small class="form-text text-muted">Você deve selecionar pelo menos um tipo de contato.</small>
+    </div>
+
+    <input id="salvarContato" type="submit" class="btn btn-success" value="Adicionar Contato">
+  </form>
+</template>

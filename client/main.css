@@ -1,0 +1,35 @@
+
+#paginaPrincipal {
+  margin-top: 15px;
+}
+
+.fa-whatsapp {
+  color: #43A047;
+}
+
+.fa-telegram {
+  color: #2196F3;
+}
+
+.fa-comment {
+  color: #FFB300;
+}
+
+.td-acoes {
+  text-align: right;
+}
+
+.form-center {
+  max-width: 300px;
+  padding: 15px;
+  margin: 0 auto;
+}
+
+.boas-vindas {
+  text-align: right;
+}
+
+.alert i {
+  font-size: 30px;
+  color: gray;
+}
