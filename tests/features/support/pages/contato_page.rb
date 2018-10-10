@@ -3,7 +3,7 @@
 class ContatoPage
   include Capybara::DSL
   def visita
-    visit 'http://localhost:3000'
+    visit '/'
   end
 
   def salvar(contato)

@@ -2,7 +2,7 @@ class AcessoPage
   include Capybara::DSL
 
   def acessa
-    visit 'http://localhost:3000'
+    visit '/'
   end
 
   def logar(email, senha)

@@ -1,0 +1,4 @@
+---
+default: -p dev
+dev: AMBIENTE=dev
+sandbox: AMBIENTE=sandbox

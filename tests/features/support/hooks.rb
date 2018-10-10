@@ -8,9 +8,15 @@
 #   puts 'tudo aqui termina após cada cenário'
 # end
 
+require_relative 'helpers'
+
+World(Helpers)
+
 Before do
   @contato_page = ContatoPage.new
   @acesso_page = AcessoPage.new
+
+  @api_uri = $env_file[$env_type]['api']
 end
 
 After('@logout') do

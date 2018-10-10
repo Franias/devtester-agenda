@@ -6,7 +6,7 @@ Funcionalidade: Lista contatos
     Posso acessar a minha agenda
     Para que eu possa ver a minha lista de contatos
 
-    @logout 
+    @logout @smoke
     Cenario: Listar contatos
 
         Dado que estou autenticado com "papito@teste.com" e "abc123"

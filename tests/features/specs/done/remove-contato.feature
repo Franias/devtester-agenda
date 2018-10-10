@@ -7,7 +7,7 @@ Funcionalidade: Remover contatos
     Para manter minha agenda organiza e atualizada
 
     Contexto:
-        Dado que estou autenticado com "papito@teste.com" e "abc123"
+        Dado que estou autenticado com "user3@teste.com" e "abc123"
 
     @logout
     Cenario: Excluir um contato
