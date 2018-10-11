@@ -17,7 +17,7 @@ caps = Selenium::WebDriver::Remote::Capabilities.chrome(
 
 if @browser.eql?('headless')
   Capybara.run_server = false
-  Capybara.javscript_driver = :selenium
+  Capybara.javascript_driver = :selenium
 
   Capybara.register_driver :selenium do |app|
     Capybara::Selenium::Driver.new(
