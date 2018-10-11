@@ -93,6 +93,8 @@ Então('devo ver estes registros na lista de contatos') do
     expect(trs[i]).to have_content v[:celular]
     expect(trs[i]).to have_content v[:tipo]
   end
+
+  expect(true).to eql false
 end
 
 Então('devo ver a mensagem {string}') do |msg_alerta|
