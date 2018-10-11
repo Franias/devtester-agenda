@@ -16,5 +16,10 @@ pipeline {
                 sh "cd tests; cucumber -p ci -t @smoke"
             }
         }
+        stage('Reports') {
+            steps {
+                cucumber fileIncludePattern: '**/*.json', jsonReportDirectory: 'tests/log', reducingMethod: 'NONE', sortingMethod: 'ALPHABETICAL'
+            }
+        }
     }
 }
