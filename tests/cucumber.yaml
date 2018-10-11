@@ -2,3 +2,5 @@
 default: -p dev
 dev: AMBIENTE=dev
 sandbox: AMBIENTE=sandbox
+headless: BROWSER=headless
+firefox: BROWSER=firefox

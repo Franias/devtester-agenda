@@ -1,13 +1,19 @@
 pipeline {
     agent {
         docker {
-            image 'ruby'
+            image 'ruby',
+            args '--link selenium'
         }
     }
     stages {
         stage('Preparation') {
             steps {
                 sh "cd tests; bundle install"
+            }
+        }
+        stage('Run Tests') {
+            steps {
+                sh "cd tests; cucumber -p sandbox -t @smoke"
             }
         }
     }
