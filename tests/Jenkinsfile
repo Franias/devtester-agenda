@@ -13,7 +13,7 @@ pipeline {
         }
         stage('Run Tests') {
             steps {
-                sh "cd tests; cucumber -p sandbox -t @smoke"
+                sh "cd tests; cucumber -p sandbox -p headless -t @smoke"
             }
         }
     }
