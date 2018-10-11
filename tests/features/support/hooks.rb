@@ -32,3 +32,11 @@ After('@insert_contato') do
   expect(res[:celular]).to eql @novo_contato[:celular]
   expect(res[:tipo]).to eql @novo_contato[:tipo]
 end
+
+After do |scenario|
+  nome = scenario.name.gsub(/[^A-Za-z0-9 ]/, '')
+  nome = nome.tr(' ', '_').downcase!
+  screenshot = "log/screenshots/#{nome}.png"
+  page.save_screenshot(screenshot)
+  embed(screenshot, 'image/png', 'Veja a evidência :)')
+end
