@@ -1,7 +1,7 @@
 pipeline {
     agent {
         docker {
-            image 'ruby',
+            image 'ruby'
             args '--link selenium'
         }
     }
